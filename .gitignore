@@ -1,0 +1,7 @@
+[a-zA-Z]
+[a-zA-Z].*
+*.tar
+*.dat
+*.csv
+*.html
+*.xlsx
