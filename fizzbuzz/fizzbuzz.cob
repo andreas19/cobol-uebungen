@@ -10,25 +10,22 @@
        01 Lim pic 999 value 100.
        01 Prn pic ZZ9.
 
-      *-----------------------------------------------------------------
+      *=================================================================
 
        procedure division.
 
        perform varying Idx from 1 by 1 until Idx > Lim
-         if function mod(Idx 15) = 0 then
-           display "FizzBuzz" no advancing
-         else
-           if function mod(Idx 3) = 0 then
-             display "Fizz" no advancing
-           else
-             if function mod(Idx 5) = 0 then
-               display "Buzz" no advancing
-             else
-               move Idx to Prn
-               display function trim(Prn) no advancing
-             end-if
-           end-if
-         end-if
+         evaluate true
+           when function mod(Idx 15) = 0
+                display "FizzBuzz" no advancing
+           when function mod(Idx 3) = 0
+                display "Fizz" no advancing
+           when function mod(Idx 5) = 0
+                display "Buzz" no advancing
+           when other
+                move Idx to Prn
+                display function trim(Prn) no advancing
+         end-evaluate
          if Idx < Lim
            display ", " no advancing
          end-if
