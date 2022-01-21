@@ -4,4 +4,4 @@ Dieses Programm verwaltet ein **sehr** einfaches Adressbuch.
 
 ## Kompilieren
 
-`cobc -xO -o adressbuch.cob`
+`cobc -xO adressbuch.cob`
