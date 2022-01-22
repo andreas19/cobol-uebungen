@@ -6,8 +6,8 @@
 
        data division.
        working-storage section.
+       01 Lim constant as 100.
        01 Idx pic 999.
-       01 Lim pic 999 value 100.
        01 Prn pic ZZ9.
 
       *=================================================================
@@ -15,12 +15,12 @@
        procedure division.
 
        perform varying Idx from 1 by 1 until Idx > Lim
-         evaluate true
-           when function mod(Idx 15) = 0
+         evaluate function mod(Idx 3) also function mod(Idx 5)
+           when 0 also 0
                 display "FizzBuzz" no advancing
-           when function mod(Idx 3) = 0
+           when 0 also any
                 display "Fizz" no advancing
-           when function mod(Idx 5) = 0
+           when any also 0
                 display "Buzz" no advancing
            when other
                 move Idx to Prn
